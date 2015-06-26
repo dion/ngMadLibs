@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" ng-app="">
+<head>
+		<meta charset="UTF-8">
+		<title>ngMadLibs</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<style>
+			.madlibs {
+				border:4px solid #000;
+			}
+			.madlibs header span {
+				border:4px solid #000;
+				height:213px;
+			}
+			.madlibs header h1 {
+				font-size:5em;
+				margin:0;
+				padding:0;
+			}
+			.border {
+				border:4px solid #000;
+				height:201px;
+			}
+			.madlibs .separator {
+				border-bottom: 1px solid #000;
+			}
+			.madlibs .headercontent {
+				padding:2em;
+			}
+			.madlibs .bodytext {
+				font-size:2em;
+				padding:1em 2.5em 6em;
+
+			}
+			.madlibs .bodytext p {
+			    text-transform: capitalize;
+			}
+			.madlibs .userinput {
+				padding:1em 0em 3em 6em;
+			}
+			.madlibs .userinput input {
+				margin:3em;
+				border:3px solid #000;
+			}
+		</style>
+</head>
+<body ng-init="female_name='jenna'; 
+			   dirty_task='cleaning pig farms'; 
+			   obnoxious_celebrity='paris hilton';
+			   job_title='chocolate maker';
+			   celebrity='tom hanks';
+			   huge_number='1 billion';
+			   tedious_task='doing laundry';
+			   useless_skill='code in java';
+			   adjective='jumping';
+			   ">
+	<div class="madlibs container">
+		<div class="row separator headercontent">
+			
+				<div class="col-md-3 border">
+					<img src="assets/mad-lib-happy-face.png">
+				</div>
+				<div class="col-md-9 border">
+					<img src="assets/ng-mad-libs-logo.png">
+					<h1>Automate This!</h1>
+				</div>
+			
+		</div>
+
+		<div class="row separator">
+			<div class="col-md-12 userinput">
+
+				<h1>Provide the following words</h1>
+				<section>
+					<input type="text" ng-model="female_name" placeholder="female name">
+					<input type="text" ng-model="dirty_task" placeholder="dirty task">
+					<input type="text" ng-model="obnoxious_celebrity" placeholder="obnoxious celebrity">
+				</section>
+
+				<section>
+					<input type="text" ng-model="job_title" placeholder="job title">
+					<input type="text" ng-model="celebrity" placeholder="celebrity">
+					<input type="text" ng-model="huge_number" placeholder="huge number">
+				</section>
+
+				<section>	
+					<input type="text" ng-model="tedious_task" placeholder="tedious task">
+					<input type="text" ng-model="useless_skill" placeholder="useless skill">
+					<input type="text" ng-model="adjective" placeholder="adjective">
+				</section>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<section class="bodytext">
+					<p>
+						<strong ng-bind="female_name"></strong> was a <strong ng-bind="job_title"></strong> who loved technology.
+					</p>
+
+					<p>
+						Although she loved parts of her job, she absolutely hated  <strong ng-bind="tedious_task"></strong> and <strong ng-bind="dirty_task"></strong>. So, <strong ng-bind="female_name"></strong> met with her life mentor <strong ng-bind="celebrity"></strong> who told her to learn how to <strong ng-bind="useless_skill"></strong> with Thinkful. Thinkful didn't offer a <strong ng-bind="useless_skill"></strong> course, so she studied general programming instead. 
+				 	</p>
+
+				 	<p>
+						What a great decision! With her new skills, <strong ng-bind="female_name"></strong> built a(n) <strong ng-bind="adjective"></strong> robot named <strong ng-bind="obnoxious_celebrity"></strong> that not only loved <strong ng-bind="dirty_task"></strong> but did it <strong ng-bind="huge_number"></strong> times faster.
+					</p> 
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js" type="text/javascript"></script>
+
+ </body>
+</html>
