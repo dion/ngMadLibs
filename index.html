@@ -61,7 +61,7 @@
 		<div class="row separator">
 			<div class="col-md-12 userinput">
 				<h1>Select Gender</h1>
-				<select ng-model="words.gender">
+				<select ng-model="words.gender" ng-change="setPronoun()">
 					<option value="female">Female</option>
 					<option value="male">Male</option>
 				</select>
@@ -98,11 +98,11 @@
 					</p>
 
 					<p>
-						Although <span ng-bind="words.first_person_pronoun()">she</span> loved parts of her job, <span ng-bind="words.first_person_pronoun()">she</span> absolutely hated  <strong ng-bind="words.tedious_task"></strong> and <strong ng-bind="words.dirty_task"></strong>. So, <strong ng-bind="words.female_name"></strong> met with <span ng-bind="words.second_person_pronoun()">her</span> life mentor <strong ng-bind="words.celebrity"></strong> who told <span ng-bind="words.third_person_pronoun()">her</span> to learn how to <strong ng-bind="words.useless_skill"></strong> with Thinkful. Thinkful didn't offer a <strong ng-bind="words.useless_skill"></strong> course, so <span ng-bind="words.first_person_pronoun()">she</span> studied general programming instead. 
+						Although <span ng-bind="first_person_pronoun">she</span> loved parts of her job, <span ng-bind="first_person_pronoun">she</span> absolutely hated  <strong ng-bind="words.tedious_task"></strong> and <strong ng-bind="words.dirty_task"></strong>. So, <strong ng-bind="words.female_name"></strong> met with <span ng-bind="second_person_pronoun">her</span> life mentor <strong ng-bind="words.celebrity"></strong> who told <span ng-bind="third_person_pronoun">her</span> to learn how to <strong ng-bind="words.useless_skill"></strong> with Thinkful. Thinkful didn't offer a <strong ng-bind="words.useless_skill"></strong> course, so <span ng-bind="first_person_pronoun">she</span> studied general programming instead. 
 				 	</p>
 
 				 	<p>
-						What a great decision! With <span ng-bind="words.second_person_pronoun()">her</span> new skills, <strong ng-bind="words.female_name"></strong> built a(n) <strong ng-bind="words.adjective"></strong> robot named <strong ng-bind="words.obnoxious_celebrity"></strong> that not only loved <strong ng-bind="words.dirty_task"></strong> but did it <strong ng-bind="words.huge_number"></strong> times faster.
+						What a great decision! With <span ng-bind="second_person_pronoun">her</span> new skills, <strong ng-bind="words.female_name"></strong> built a(n) <strong ng-bind="words.adjective"></strong> robot named <strong ng-bind="words.obnoxious_celebrity"></strong> that not only loved <strong ng-bind="words.dirty_task"></strong> but did it <strong ng-bind="words.huge_number"></strong> times faster.
 					</p> 
 				</section>
 			</div>

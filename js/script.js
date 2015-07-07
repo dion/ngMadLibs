@@ -10,21 +10,15 @@ var myApp = angular.module('myApp', [])
 			huge_number: '1 billion',
 			tedious_task: 'doing laundry',
 			useless_skill: 'code in java',
-			adjective: 'jumping',
-			first_person_pronoun: function () {
-				var pronoun = this.gender == 'female' ? 'she' : 'he';
-				
-				return pronoun;
-			},
-			second_person_pronoun: function () {
-				var pronoun = this.gender == 'female' ? 'her' : 'his';
-				
-				return pronoun;
-			},
-			third_person_pronoun: function () {
-				var pronoun = this.gender == 'female' ? 'her' : 'him';
-				
-				return pronoun;
-			}
+			adjective: 'jumping'
 		};
+
+		$scope.setPronoun = function () {
+			var gender = $scope.words.gender;
+			$scope.first_person_pronoun = gender == 'female' ? 'she' : 'he';
+			$scope.second_person_pronoun = gender == 'female' ? 'her' : 'his';
+			$scope.third_person_pronoun = gender == 'female' ? 'her' : 'him';
+		};
+
+		$scope.setPronoun();
 	});
