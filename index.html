@@ -42,72 +42,80 @@
 				margin:3em;
 				border:3px solid #000;
 			}
+			.madlibs .submitbox {
+				padding:20px;
+			}
 		</style>
 </head>
 <body ng-controller="madlibs">
-	<div class="madlibs container">
-		<div class="row separator headercontent">
-			
-				<div class="col-md-3 border">
-					<img src="assets/mad-lib-happy-face.png">
+	<form name="myForm" ng-submit="submit()">
+		<div class="madlibs container">
+			<div class="row separator headercontent">
+				
+					<div class="col-md-3 border">
+						<img src="assets/mad-lib-happy-face.png">
+					</div>
+					<div class="col-md-9 border">
+						<img src="assets/ng-mad-libs-logo.png">
+						<h1>Automate This!</h1>
+					</div>
+				
+			</div>
+
+			<div class="row">
+				<div class="col-md-12 userinput separator" ng-if="1<2">
+						<h1>Select Gender</h1>
+						<input type="radio" name="gender" ng-model="words.gender" value="male"> Male
+
+						<input type="radio" name="gender" ng-model="words.gender" value="female"> Female
+
+						<h1>Provide the following words</h1>
+						<section>
+							<input type="text" ng-model="words.female_name" placeholder="female name" required>
+							<input type="select" ng-model="words.dirty_task" placeholder="dirty task" required>
+							<input type="text" ng-model="words.obnoxious_celebrity" placeholder="obnoxious celebrity" required>
+						</section>
+
+						<section>
+							<input type="text" ng-model="words.job_title" placeholder="job title" required>
+							<input type="text" ng-model="words.celebrity" placeholder="celebrity" required>
+							<input type="number" ng-model="words.huge_number" placeholder="huge number" required ng-minlength="5">
+						</section>
+
+						<section>	
+							<input type="text" ng-model="words.tedious_task" placeholder="tedious task" required>
+							<input type="text" ng-model="words.useless_skill" placeholder="useless skill" required>
+							<input type="text" ng-model="words.adjective" placeholder="adjective"mrequired>
+						</section>
 				</div>
-				<div class="col-md-9 border">
-					<img src="assets/ng-mad-libs-logo.png">
-					<h1>Automate This!</h1>
+				<div class="col-md-12 text-right submitbox">
+					<input type="submit" value="Generate My Mad Lib">
 				</div>
-			
-		</div>
+			</div>
 
-		<div class="row separator">
-			<div class="col-md-12 userinput">
-				<h1>Select Gender</h1>
-				<select ng-model="words.gender" ng-change="setPronoun()">
-					<option value="female">Female</option>
-					<option value="male">Male</option>
-				</select>
+			<div class="row">
+				<div class="col-md-12">
+					<section class="bodytext" ng-if="myForm.$submitted">
+						<p>
+							<strong ng-bind="words.female_name"></strong> was a <strong ng-bind="words.job_title"></strong> who loved technology.
+						</p>
 
-				<h1>Provide the following words</h1>
-				<section>
-					<input type="text" ng-model="words.female_name" placeholder="female name">
-					
-					<input type="select" ng-model="words.dirty_task" placeholder="dirty task">
-					<input type="text" ng-model="words.dirty_task" placeholder="dirty task">
-					<input type="text" ng-model="words.obnoxious_celebrity" placeholder="obnoxious celebrity">
-				</section>
+						<p>
+							Although <span ng-bind="first_person_pronoun">she</span> loved parts of her job, <span ng-bind="first_person_pronoun">she</span> absolutely hated  <strong ng-bind="words.tedious_task"></strong> and <strong ng-bind="words.dirty_task"></strong>. So, <strong ng-bind="words.female_name"></strong> met with <span ng-bind="second_person_pronoun">her</span> life mentor <strong ng-bind="words.celebrity"></strong> who told <span ng-bind="third_person_pronoun">her</span> to learn how to <strong ng-bind="words.useless_skill"></strong> with Thinkful. Thinkful didn't offer a <strong ng-bind="words.useless_skill"></strong> course, so <span ng-bind="first_person_pronoun">she</span> studied general programming instead. 
+					 	</p>
 
-				<section>
-					<input type="text" ng-model="words.job_title" placeholder="job title">
-					<input type="text" ng-model="words.celebrity" placeholder="celebrity">
-					<input type="text" ng-model="words.huge_number" placeholder="huge number">
-				</section>
+					 	<p>
+							What a great decision! With <span ng-bind="second_person_pronoun">her</span> new skills, <strong ng-bind="words.female_name"></strong> built a(n) <strong ng-bind="words.adjective"></strong> robot named <strong ng-bind="words.obnoxious_celebrity"></strong> that not only loved <strong ng-bind="words.dirty_task"></strong> but did it <strong ng-bind="words.huge_number | number"></strong> times faster.
+						</p> 
 
-				<section>	
-					<input type="text" ng-model="words.tedious_task" placeholder="tedious task">
-					<input type="text" ng-model="words.useless_skill" placeholder="useless skill">
-					<input type="text" ng-model="words.adjective" placeholder="adjective">
-				</section>
-
+						<div class="col-md-12 text-right submitbox">
+							<input type="reset" value="Start Over" ng-click="reset()">
+						</div>
+					</section>
+				</div>
 			</div>
 		</div>
-
-		<div class="row">
-			<div class="col-md-12">
-				<section class="bodytext">
-					<p>
-						<strong ng-bind="words.female_name"></strong> was a <strong ng-bind="words.job_title"></strong> who loved technology.
-					</p>
-
-					<p>
-						Although <span ng-bind="first_person_pronoun">she</span> loved parts of her job, <span ng-bind="first_person_pronoun">she</span> absolutely hated  <strong ng-bind="words.tedious_task"></strong> and <strong ng-bind="words.dirty_task"></strong>. So, <strong ng-bind="words.female_name"></strong> met with <span ng-bind="second_person_pronoun">her</span> life mentor <strong ng-bind="words.celebrity"></strong> who told <span ng-bind="third_person_pronoun">her</span> to learn how to <strong ng-bind="words.useless_skill"></strong> with Thinkful. Thinkful didn't offer a <strong ng-bind="words.useless_skill"></strong> course, so <span ng-bind="first_person_pronoun">she</span> studied general programming instead. 
-				 	</p>
-
-				 	<p>
-						What a great decision! With <span ng-bind="second_person_pronoun">her</span> new skills, <strong ng-bind="words.female_name"></strong> built a(n) <strong ng-bind="words.adjective"></strong> robot named <strong ng-bind="words.obnoxious_celebrity"></strong> that not only loved <strong ng-bind="words.dirty_task"></strong> but did it <strong ng-bind="words.huge_number"></strong> times faster.
-					</p> 
-				</section>
-			</div>
-		</div>
-	</div>
+	</form>
 
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" type="text/javascript"></script>
