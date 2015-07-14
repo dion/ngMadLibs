@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', [])
+var myApp = angular.module('myApp', ['ngAnimate'])
 	.controller('madlibs', function ($scope) {
 		$scope.words = {
 			gender: 'female',
@@ -18,6 +18,8 @@ var myApp = angular.module('myApp', [])
 			$scope.first_person_pronoun = gender == 'female' ? 'she' : 'he';
 			$scope.second_person_pronoun = gender == 'female' ? 'her' : 'his';
 			$scope.third_person_pronoun = gender == 'female' ? 'her' : 'him';
+
+			$scope.show = true;
 		};
 
 		$scope.submit = function () {
